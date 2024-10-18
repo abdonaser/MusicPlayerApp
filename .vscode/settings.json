@@ -1,0 +1,9 @@
+{
+	"editor.formatOnSave": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "always",
+		"source.organizeImports": "never"
+	},
+	"editor.wordWrap": "on"
+}
