@@ -21,7 +21,7 @@ const TracksListItem = ({ track }: TrackListItemProps) => {
 		<TouchableHighlight>
 			<View style={styles.trackItemContainer}>
 				<View>
-					<FastImage
+					{/* <FastImage
 						source={{
 							uri: track.image ?? unknownTrackImageUri,
 							priority: FastImage.priority.normal,
@@ -30,15 +30,15 @@ const TracksListItem = ({ track }: TrackListItemProps) => {
 							...styles.trackArtworkImage,
 							opacity: isActiveTrack ? 0.6 : 1,
 						}}
-					/>
-					{/* <Image
+					/> */}
+					<Image
 						source={{ uri: track.image ?? unknownTrackImageUri }}
 						style={[
 							styles.trackArtworkImage,
 							{ opacity: isActiveTrack ? 0.6 : 1 }
 						]}
 						resizeMode = 'cover'
-					/> */}
+					/>
 				</View>
 
 				{/* //- Track title + artist */}
