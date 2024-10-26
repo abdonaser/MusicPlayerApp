@@ -6,6 +6,7 @@ export const colors = {
 	icon: '#fff',
 	maximumTrackTintColor: 'rgba(255,255,255,0.4)',
 	minimumTrackTintColor: 'rgba(255,255,255,0.6)',
+	bgMuted:"#1A1A1C"
 }
 
 export const fontSize = {
