@@ -12,15 +12,16 @@ const ItemDivider =()=>{
 const TracksList = ({ ...flatlistProps }: TrackListProps) => {
 	return (
 		<FlatList
+			contentContainerStyle={{ paddingTop: 10, paddingBottom: 120 }}
 			data={library}
 			renderItem={({ item: track }) => (
 				<TracksListItem track={{ ...track, image: track.artwork }} />
 			)}
 			ItemSeparatorComponent={ItemDivider}
+			ListFooterComponent={ItemDivider}  
 			{...flatlistProps}
-			scrollEnabled={false} 
+			scrollEnabled={false}
 		/>
-		 
 	)
 }
  
