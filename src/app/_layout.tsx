@@ -1,10 +1,20 @@
+import { useSetupTrackPlayer } from '@/hooks/useSetupTrackPlayer'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { useEffect } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-
+import { SplashScreen} from 'expo-router'
+import { useCallback } from 'react'
+import { useLogTrackPlayerState } from '@/hooks/useLogTrackPlayerState'
+SplashScreen.preventAutoHideAsync()
+// TrackPlayer.registerPlaybackService(() => playbackService)
 const App = () => {
-	 
+	const handleTrackPlayerLoaded = useCallback(() => {
+		SplashScreen.hideAsync()
+	}, [])
+	 useSetupTrackPlayer({
+			onLoad: handleTrackPlayerLoaded,
+		})
+	useLogTrackPlayerState()
 
 	return (
 		<SafeAreaProvider>
@@ -14,7 +24,6 @@ const App = () => {
 	)
 }
 
-// Root navigation setup for your app
 const RootNavigation = () => {
 	return (
 		<Stack>
