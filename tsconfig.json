@@ -17,6 +17,6 @@
 			"@/assets/*": ["./assets/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "src/components/TrackListItem.txs"],
+	"include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "src/components/TrackListItem.tsx" ,"types/**/*.d.ts"],
 	"exclude": ["node_modules"]
 }

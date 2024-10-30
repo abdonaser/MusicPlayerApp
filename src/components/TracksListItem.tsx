@@ -7,14 +7,10 @@ import { colors, fontSize } from '@/constants/tokens'
  
 
 
+ 
 export type TrackListItemProps = {
-	track: {
-		title: string
-		image?: string
-		artist?: string
-	}
+	track: any[]
 }
-
 const isActiveTrack = false
 const TracksListItem = ({ track }: TrackListItemProps) => {
 	return (
@@ -32,12 +28,9 @@ const TracksListItem = ({ track }: TrackListItemProps) => {
 						}}
 					/> */}
 					<Image
-						source={{ uri: track.image ?? unknownTrackImageUri }}
-						style={[
-							styles.trackArtworkImage,
-							{ opacity: isActiveTrack ? 0.6 : 1 }
-						]}
-						resizeMode = 'cover'
+						source={{ uri: track.artwork ?? unknownTrackImageUri }}
+						style={[styles.trackArtworkImage, { opacity: isActiveTrack ? 0.6 : 1 }]}
+						resizeMode="cover"
 					/>
 				</View>
 

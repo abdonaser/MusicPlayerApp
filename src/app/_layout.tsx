@@ -1,8 +1,11 @@
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
+import { useEffect } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const App = () => {
+	 
+
 	return (
 		<SafeAreaProvider>
 			<RootNavigation />
@@ -11,6 +14,7 @@ const App = () => {
 	)
 }
 
+// Root navigation setup for your app
 const RootNavigation = () => {
 	return (
 		<Stack>

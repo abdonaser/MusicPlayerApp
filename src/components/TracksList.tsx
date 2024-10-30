@@ -6,19 +6,22 @@ import { utilsStyles } from '@/styles'
 
 
 export type TrackListProps =Partial<FlatListProps<unknown>> 
+export type TracksListProps = Partial<FlatListProps<unknown>> & {
+	tracks: any[]
+}
+
+
 const ItemDivider =()=>{
 	return <View style={{ ...utilsStyles.itemSeparator, marginVertical: 10, marginLeft: 60 }} />
 }
-const TracksList = ({ ...flatlistProps }: TrackListProps) => {
+const TracksList = ({ tracks,...flatlistProps }: TrackListProps) => {
 	return (
 		<FlatList
 			contentContainerStyle={{ paddingTop: 10, paddingBottom: 120 }}
-			data={library}
-			renderItem={({ item: track }) => (
-				<TracksListItem track={{ ...track, image: track.artwork }} />
-			)}
+			data={tracks}
+			renderItem={({ item: track }) => <TracksListItem track={track} />}
 			ItemSeparatorComponent={ItemDivider}
-			ListFooterComponent={ItemDivider}  
+			ListFooterComponent={ItemDivider}
 			{...flatlistProps}
 			scrollEnabled={false}
 		/>
