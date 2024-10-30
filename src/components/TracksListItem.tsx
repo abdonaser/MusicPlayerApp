@@ -4,17 +4,20 @@ import FastImage from 'react-native-fast-image'
 import { unknownTrackImageUri } from '@/constants/images'
 import { defaultStyles } from '@/styles'
 import { colors, fontSize } from '@/constants/tokens'
- 
+import { Track, useActiveTrack } from 'react-native-track-player'
 
+import { Entypo } from "@expo/vector-icons"
 
- 
 export type TrackListItemProps = {
-	track: any[]
+	track: Track,
+	onTrackSelect: (track: Track) => void
 }
-const isActiveTrack = false
-const TracksListItem = ({ track }: TrackListItemProps) => {
+
+const TracksListItem = ({ track, onTrackSelect: handelTrackSelect }: TrackListItemProps) => {
+	const isActiveTrack = useActiveTrack()?.url === track.url
+
 	return (
-		<TouchableHighlight>
+		<TouchableHighlight onPress={() => handelTrackSelect(track)}>
 			<View style={styles.trackItemContainer}>
 				<View>
 					{/* <FastImage
@@ -35,27 +38,31 @@ const TracksListItem = ({ track }: TrackListItemProps) => {
 				</View>
 
 				{/* //- Track title + artist */}
-				<View style={{ width: '100%' }}>
-					<Text
-						numberOfLines={1}
-						style={{
-							...styles.trackTitleText,
-							color: isActiveTrack ? colors.primary : colors.text,
-						}}
-					>
-						{track.title}
-					</Text>
-
-					{track.artist && (
+				<View style={styles.content_Container}>
+					<View style={{ width: '100%' }}>
 						<Text
 							numberOfLines={1}
 							style={{
-								...styles.trackArtistText,
+								...styles.trackTitleText,
+								color: isActiveTrack ? colors.primary : colors.text,
 							}}
 						>
-							{track.artist}
+							{track.title}
 						</Text>
-					)}
+
+						{track.artist && (
+							<Text
+								numberOfLines={1}
+								style={{
+									...styles.trackArtistText,
+								}}
+							>
+								{track.artist}
+							</Text>
+						)}
+					</View>
+
+					<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
 				</View>
 			</View>
 		</TouchableHighlight>
@@ -85,6 +92,12 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		width: 50,
 		height: 50,
+	},
+	content_Container: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
 	},
 	trackTitleText: {
 		...defaultStyles.text,

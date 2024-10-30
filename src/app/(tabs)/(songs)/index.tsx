@@ -25,9 +25,7 @@ const SongsScreen = () => {
 			{Platform.OS === 'android' && (
 				<SearchInput value={search} placeholder="Find in songs" onChangeText={handleOnChangeText} />
 			)}
-			{filteredTracks.length <= 0 ? (
-				<Text style={styles.emptyText}>No songs found</Text>
-			) : (
+			 
 				<ScrollView
 					contentInsetAdjustmentBehavior="automatic"
 					showsVerticalScrollIndicator
@@ -37,23 +35,9 @@ const SongsScreen = () => {
 				>
 					<TracksList tracks={filteredTracks} />
 				</ScrollView>
-			)}
+			 
 		</View>
 	)
 }
-const styles = StyleSheet.create({
-	emptyText: {
-		color: 'red',
-		fontSize: 18,
-		fontWeight: '600',
-		textAlign: 'center',
-		marginTop: 50,
-		marginHorizontal:20,
-		padding: 10,
-		borderWidth: 1,
-		borderColor: 'red',
-		borderRadius: 8,
-		backgroundColor: 'rgba(255, 0, 0, 0.1)',
-	},
-})
+
 export default SongsScreen

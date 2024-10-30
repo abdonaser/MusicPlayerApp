@@ -34,8 +34,8 @@ export const utilsStyles = StyleSheet.create({
 		marginTop: 20,
 	},
 	emptyContentImage: {
-		width: 200,
-		height: 200,
+		width: 150,
+		height: 150,
 		alignSelf: 'center',
 		marginTop: 40,
 		opacity: 0.3,

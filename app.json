@@ -13,7 +13,12 @@
       "backgroundColor": "#000"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+			"bundleIdentifier": "com.music.player",
+			"infoPlist": {
+				"UIBackgroundModes": ["audio"]
+			}
+		 
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +36,11 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "11204d1c-bd9b-4baa-bcd4-e8847f6e2183"
+      }
     }
   }
 }
