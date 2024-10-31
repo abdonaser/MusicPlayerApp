@@ -5,12 +5,11 @@ import { unknownTrackImageUri } from '@/constants/images'
 import { colors, fontSize } from '@/constants/tokens'
 import { defaultStyles } from '@/styles'
 import { PlayPauseButton, SkipToNextButton } from './PlayerControls'
-import { useLastActiveTrack } from '@/hooks/UseLastActivetrack'
-
+import { useLastActiveTrack } from '@/hooks/useLastActiveTrack'
+ 
 const FloatingPlayer = ({ style }: ViewProps) => {
     const activeTrack = useActiveTrack()
     const lastActiveTrack = useLastActiveTrack()
-
 
     const displayedTrack = activeTrack ?? lastActiveTrack
 
