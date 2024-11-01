@@ -4,10 +4,9 @@ import FastImage from 'react-native-fast-image'
 import { unknownTrackImageUri } from '@/constants/images'
 import { defaultStyles } from '@/styles'
 import { colors, fontSize } from '@/constants/tokens'
-import { Track, useActiveTrack } from 'react-native-track-player'
-
-import { Entypo } from "@expo/vector-icons"
-
+import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player'
+import { Entypo, Ionicons } from '@expo/vector-icons'
+// import Lottie from 'lottie-react-native'
 export type TrackListItemProps = {
 	track: Track,
 	onTrackSelect: (track: Track) => void
@@ -15,6 +14,7 @@ export type TrackListItemProps = {
 
 const TracksListItem = ({ track, onTrackSelect: handelTrackSelect }: TrackListItemProps) => {
 	const isActiveTrack = useActiveTrack()?.url === track.url
+	const { playing } = useIsPlaying()
 
 	return (
 		<TouchableHighlight onPress={() => handelTrackSelect(track)}>
@@ -37,6 +37,28 @@ const TracksListItem = ({ track, onTrackSelect: handelTrackSelect }: TrackListIt
 					/>
 				</View>
 
+				{isActiveTrack &&
+					(playing ? (
+						// <Lottie
+						// 	source={require('../../assets/Animation/aaa.json')}
+						// 	style={styles.trackPlayingIconIndicator}
+						// 	autoPlay
+						// 	loop
+						// />
+						<Ionicons
+							style={styles.trackPausedIndicator}
+							name={'musical-notes-sharp'}
+							size={24}
+							color={colors.icon}
+						/>
+					) : (
+						<Ionicons
+							style={styles.trackPausedIndicator}
+							name={'play'}
+							size={24}
+							color={colors.icon}
+						/>
+					))}
 				{/* //- Track title + artist */}
 				<View style={styles.content_Container}>
 					<View style={{ width: '100%' }}>

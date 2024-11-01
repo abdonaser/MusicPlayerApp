@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
-    "scheme": "musicPlayer",
+    "scheme": "musicplayer",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -14,18 +14,23 @@
     },
     "ios": {
       "supportsTablet": true,
-			"bundleIdentifier": "com.music.player",
-			"infoPlist": {
-				"UIBackgroundModes": ["audio"]
-			}
-		 
+      "bundleIdentifier": "com.music.player",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000"
       },
-      "package": "com.anonymous.musicPlayer"
+      "package": "com.anonymous.musicPlayer",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,6 +46,9 @@
       "eas": {
         "projectId": "11204d1c-bd9b-4baa-bcd4-e8847f6e2183"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/11204d1c-bd9b-4baa-bcd4-e8847f6e2183"
     }
   }
 }
